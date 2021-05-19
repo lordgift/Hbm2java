@@ -1,5 +1,5 @@
 # Hbm2java
-Hbm2java is used generate source based on HBM files.
+Hbm2java is used generate source via hibernate.reveng.xml.
 
 ![](https://img.shields.io/badge/Java-8-orange.svg?logo=java)
 
