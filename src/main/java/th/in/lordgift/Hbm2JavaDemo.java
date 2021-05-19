@@ -16,7 +16,7 @@ import th.in.lordgift.exporter.Hbm2JavaExporterTaskHelper;
  */
 public class Hbm2JavaDemo {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         try {
 
@@ -36,7 +36,7 @@ public class Hbm2JavaDemo {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-
+            System.exit(0);
         }
     }
 
