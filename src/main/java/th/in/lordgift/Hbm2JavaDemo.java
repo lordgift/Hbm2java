@@ -1,4 +1,4 @@
-package com.hibernate;
+package th.in.lordgift;
 
 import java.io.File;
 
@@ -6,10 +6,10 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.reveng.dialect.MetaDataDialect;
 import org.hibernate.tool.ant.Hbm2JavaExporterTask;
 
-import com.hibernate.config.ConfigurationAwareToolTask;
-import com.hibernate.config.ExtendedJDBCConfigurationTask;
-import com.hibernate.config.ExtendedJDBCMetaDataConfigration;
-import com.hibernate.exporter.Hbm2JavaExporterTaskHelper;
+import th.in.lordgift.config.ConfigurationAwareToolTask;
+import th.in.lordgift.config.ExtendedJDBCConfigurationTask;
+import th.in.lordgift.config.ExtendedJDBCMetaDataConfigration;
+import th.in.lordgift.exporter.Hbm2JavaExporterTaskHelper;
 
 /**
  * Created by sunilp on 9/7/15.

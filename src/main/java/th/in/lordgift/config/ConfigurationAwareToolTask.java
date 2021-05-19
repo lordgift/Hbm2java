@@ -13,26 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hibernate.config;
-
-import java.io.File;
+package th.in.lordgift.config;
 
 import org.hibernate.cfg.Configuration;
-import org.hibernate.tool.ant.JDBCConfigurationTask;
+import org.hibernate.tool.ant.HibernateToolTask;
 
 /**
  * User: sunil kumar
  */
-public class ExtendedJDBCConfigurationTask extends JDBCConfigurationTask {
+public class ConfigurationAwareToolTask extends HibernateToolTask {
 
+    private Configuration cfg = null;
 
-    public ExtendedJDBCConfigurationTask(File configurationFile) {
-        super();
-        setConfigurationFile(configurationFile);
+    public ConfigurationAwareToolTask(Configuration cfg) {
+        this.cfg = cfg;
     }
 
     @Override
-    protected Configuration createConfiguration() {
-        return new ExtendedJDBCMetaDataConfigration();
+    public Configuration getConfiguration() {
+        return this.cfg;
     }
 }

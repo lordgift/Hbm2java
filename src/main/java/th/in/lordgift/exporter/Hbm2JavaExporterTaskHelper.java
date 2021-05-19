@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hibernate.exporter;
+package th.in.lordgift.exporter;
 
 import org.hibernate.cfg.reveng.dialect.MetaDataDialect;
 import org.hibernate.tool.ant.Hbm2JavaExporterTask;
