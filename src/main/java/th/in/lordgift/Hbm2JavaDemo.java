@@ -16,13 +16,13 @@ import java.io.File;
  */
 public class Hbm2JavaDemo {
 
+    /* ABSOLUTE PATH also available */
     private static final String hibernateCfgXml     = "src/main/resources/sqlserver/hibernate.cfg.xml";
     private static final String outputDirectory     = "build/hbm2java/";
     private static final String outputPackage       = "model.entity";
     private static final String hibernateRevengXml  = "src/main/resources/sqlserver/hibernate.reveng.xml";
 
     public static void main(String[] args) {
-
         try {
             File configFile = new File(hibernateCfgXml);
             Configuration configuration = getJDBCConfiguration(configFile);
@@ -35,7 +35,8 @@ public class Hbm2JavaDemo {
             hbm2javaExporter.setDestdir(new File(outputDirectory));
             hbm2javaExporter.execute();
 
-            System.out.println("Successfully code generated...");
+            System.out.println("Output directory is >> " + hbm2javaExporter.getDestdir().getAbsolutePath());
+            System.out.println("Successfully execution...");
 
         } catch (Exception e) {
             e.printStackTrace();
