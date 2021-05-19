@@ -1,30 +1,29 @@
 package th.in.lordgift;
 
-import java.io.File;
-
+import org.apache.tools.ant.types.Path;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.reveng.dialect.MetaDataDialect;
 import org.hibernate.tool.ant.Hbm2JavaExporterTask;
-
 import th.in.lordgift.config.ConfigurationAwareToolTask;
 import th.in.lordgift.config.ExtendedJDBCConfigurationTask;
 import th.in.lordgift.config.ExtendedJDBCMetaDataConfigration;
 import th.in.lordgift.exporter.Hbm2JavaExporterTaskHelper;
+
+import java.io.File;
 
 /**
  * Created by sunilp on 9/7/15.
  */
 public class Hbm2JavaDemo {
 
-    private static final String hibernateCfgXml     = "/home/sunilp/IdeaProjects/Hbm2javaCodeGeneration/src/main/resources/configuration/hibernate.cfg.xml";
-    private static final String outputDirectory     = "/home/sunilp";
-    private static final String outputPackage       = "com.hrdb";
-
+    private static final String hibernateCfgXml     = "src/main/resources/sqlserver/hibernate.cfg.xml";
+    private static final String outputDirectory     = "build/hbm2java/";
+    private static final String outputPackage       = "model.entity";
+    private static final String hibernateRevengXml  = "src/main/resources/sqlserver/hibernate.reveng.xml";
 
     public static void main(String[] args) {
 
         try {
-
             File configFile = new File(hibernateCfgXml);
             Configuration configuration = getJDBCConfiguration(configFile);
             ConfigurationAwareToolTask configurationAwareToolTask = new ConfigurationAwareToolTask(configuration);
@@ -51,6 +50,11 @@ public class Hbm2JavaDemo {
         jdbcConfiguration.setPackageName(outputPackage);
         jdbcConfiguration.setDetectOptimisticLock(false);
         jdbcConfiguration.setReverseStrategy("org.hibernate.cfg.reveng.DelegatingReverseEngineeringStrategy");
+
+        Path path = new Path(null);
+        path.setPath(hibernateRevengXml);
+        jdbcConfiguration.setRevEngFile(path);
+
         return jdbcConfiguration.getConfiguration();
     }
 
